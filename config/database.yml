@@ -1,0 +1,15 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: 5
+
+development:
+  database: eproduct_cart_development
+
+test:
+  database: eproduct_cart_test
+
+production:
+  database: eproduct_cart_production

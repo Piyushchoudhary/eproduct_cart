@@ -6,10 +6,13 @@ default: &default
   pool: 5
 
 development:
+  <<: *default
   database: eproduct_cart_development
 
 test:
+  <<: *default
   database: eproduct_cart_test
 
 production:
+  <<: *default
   database: eproduct_cart_production

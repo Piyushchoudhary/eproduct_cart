@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  namespace :admin do
+    resources :categories
+  end
   #devise_for :users
   devise_for :users, controllers: {
       sessions: 'users/sessions',

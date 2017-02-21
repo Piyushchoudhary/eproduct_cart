@@ -23,6 +23,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # add Twitter Bootstrap 4
 gem 'bootstrap', '~> 4.0.0.alpha3'
+# devise for user login and role management
+gem 'devise'
+#  display messages
+gem 'toastr-rails'
+# Add admin user
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

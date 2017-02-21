@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: eproduct_cart_development
+  database: new_eproduct_cart_development
 
 test:
   <<: *default

@@ -27,9 +27,8 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'devise'
 #  display messages
 gem 'toastr-rails'
-# Add admin user
-gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '>= 1.0.0.rc'
+
+gem 'cancancan'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

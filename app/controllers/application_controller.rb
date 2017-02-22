@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
     ## this render call should be:
     # render file: "#{Rails.root}/public/403", formats: [:html], status: 403, layout: false
   end
-  
+
   def after_sign_in_path_for(resource)
-    root_path
+    if current_user.admin_role?
+      admin_root_path
+    else
+      root_path
+    end
   end
 
 end

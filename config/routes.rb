@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+
   namespace :admin do
     resources :categories
+    root 'dashboard#index'
   end
-  #devise_for :users
+
+  get '/contact' => 'home#contact'
+
+  get '/my_account' => 'my_account#index'
+
+  get '/my_orders' => 'my_account#my_orders'
+
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       passwords: 'users/passwords',

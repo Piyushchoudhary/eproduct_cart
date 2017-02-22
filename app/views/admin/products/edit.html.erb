@@ -1,0 +1,8 @@
+<h1>Editing Admin Product</h1>
+
+<%= form_for(@product, url: admin_product_path(@product)) do |f| %>
+  <%= render 'form', product: @product, f: f %>
+<% end %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', admin_products_path %>

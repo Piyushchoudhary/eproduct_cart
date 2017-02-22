@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Product type:</strong>
+  <%= @product.product_type_id %>
+</p>
+
+<p>
+  <strong>No pages:</strong>
+  <%= @product.no_of_pages %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @product.publisher %>
+</p>
+
+<p>
+  <strong>Publication date:</strong>
+  <%= @product.publication_date %>
+</p>
+
+<p>
+  <strong>Isbn:</strong>
+  <%= @product.isbn %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Writer name:</strong>
+  <%= @product.writer_name %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= image_tag @product.image.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Product File:</strong>
+  <a href="<%= @product.product_file.url %>" target='_blank'>File</a>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_path(@product) %> |
+<%= link_to 'Back', admin_products_path %>

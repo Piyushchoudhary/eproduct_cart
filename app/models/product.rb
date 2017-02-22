@@ -6,4 +6,11 @@ class Product < ApplicationRecord
   validates_attachment_content_type :product_file, :content_type => ['application/pdf', 'application/msword', 'text/plain']
 
   validates :product_file, attachment_presence: true
+
+  validates :title, presence: true
+
+  validates :price, presence: true
+
+  validates :price, numericality: true
+
 end

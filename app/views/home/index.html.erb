@@ -10,7 +10,7 @@
       <% @products.each do |product| %>
         <%= render partial: 'common/product', locals: { product: product } %>
       <% end %>
-      <%= render partial: 'common/more_product'%>
+      <%= render partial: 'common/more_product' if is_load_needed?(@products) %>
     </div>
 
 </div>

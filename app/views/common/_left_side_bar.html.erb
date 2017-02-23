@@ -2,7 +2,7 @@
   <p class="lead">Shop Name</p>
   <div class="list-group">
     <% @categories.each do |category| %>
-      <%= link_to title_format(category.name), '#', class: 'list-group-item' %>
+      <%= link_to title_format(category.name), category_path(category), class: 'list-group-item' %>
     <% end %>
   </div>
 </div>

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :products
-  end
-  namespace :admin do
     resources :categories
+    resources :products
     root 'dashboard#index'
   end
+
+  resources :categories, :only => [:show]
 
   get '/contact' => 'home#contact'
 

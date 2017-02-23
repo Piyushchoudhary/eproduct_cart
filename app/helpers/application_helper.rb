@@ -6,4 +6,8 @@ module ApplicationHelper
   def truncate_str str, length=50
     truncate(str.strip, length: length)
   end
+
+  def is_load_needed?(products)
+    products.size > 12
+  end
 end

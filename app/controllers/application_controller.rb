@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # set categories for left side bar menus
+  def set_categories
+    @categories = Category.all
+  end
+
 end

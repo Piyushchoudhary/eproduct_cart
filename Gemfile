@@ -32,6 +32,11 @@ gem 'cancancan'
 
 gem "paperclip", "~> 5.0.0"
 
+gem 'sunspot_rails'
+
+# optional pre-packaged Solr distribution for use in development
+gem 'sunspot_solr'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

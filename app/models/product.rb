@@ -17,4 +17,9 @@ class Product < ApplicationRecord
 
   validates :price, numericality: true
 
+  searchable do
+    text :title
+    integer :price
+  end
+
 end

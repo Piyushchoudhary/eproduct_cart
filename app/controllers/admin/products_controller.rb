@@ -25,7 +25,7 @@ class Admin::ProductsController < Admin::BaseController
   # POST /admin/products.json
   def create
     @product = Product.new(product_params)
-
+    @product.price = @product.price.round(2)
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_url, notice: 'Product was successfully created.' }
@@ -41,7 +41,9 @@ class Admin::ProductsController < Admin::BaseController
   # PATCH/PUT /admin/products/1.json
   def update
     respond_to do |format|
-      if @product.update(product_params)
+      product_value_params = product_params
+      product_value_params[:price] = product_value_params[:price].round(2) if product_value_params[:price].present?
+      if @product.update(product_value_params)
         format.html { redirect_to admin_products_url, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else

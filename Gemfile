@@ -37,6 +37,8 @@ gem 'sunspot_rails'
 # optional pre-packaged Solr distribution for use in development
 gem 'sunspot_solr'
 
+gem 'progress_bar'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

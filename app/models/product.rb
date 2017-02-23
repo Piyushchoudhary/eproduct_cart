@@ -20,6 +20,7 @@ class Product < ApplicationRecord
   searchable do
     text :title
     integer :price
+    integer :sell_counter
   end
 
 end

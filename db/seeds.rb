@@ -3,3 +3,6 @@ User.create({ email: 'eproduct2017@gmail.com', password: 'eproduct2017test', adm
 
 # Create customer user
 User.create({ email: 'epcustomer2017@gmail.com', password: 'epcustomer2017test' })
+
+# Create product types
+ProductType.create({ name: 'eBooks' })

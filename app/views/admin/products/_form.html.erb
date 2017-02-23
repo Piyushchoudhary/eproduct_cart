@@ -11,6 +11,11 @@
 <% end %>
 
 <div class="field">
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+</div>
+
+<div class="field">
   <%= f.label :title %>
   <%= f.text_field :title %>
 </div>
@@ -22,7 +27,7 @@
 
 <div class="field">
   <%= f.label :product_type_id %>
-  <%= f.number_field :product_type_id %>
+  <%= f.collection_select :product_type_id, ProductType.order(:name), :id, :name %>
 </div>
 
 <div class="field">

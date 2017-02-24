@@ -1,10 +1,12 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
   <div class="thumbnail">
-    <%= image_tag(product.image.url(:thumb), :class => 'thumbnail_image') %>
+    <a href='<%= product_path(product) %>'>
+      <%= image_tag(product.image.url(:thumb), :class => 'thumbnail_image') %>
+    </a>
     <div class="caption">
       <h4 class="pull-right">$<%= product.price %></h4>
       <h5>
-        <%= link_to truncate_str(title_format(product.title), 75), '#' %>
+        <%= link_to truncate_str(title_format(product.title), 75), product_path(product) %>
       </h5>
       <p>
         <a class="btn btn-primary js-add_to_basket" data-product-id="<%= product.id %>" href="#">Add to Basket +</a>

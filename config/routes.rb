@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/my_orders' => 'my_account#my_orders'
 
+  resources :products, :only => [:show]
+
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       passwords: 'users/passwords',

@@ -12,10 +12,10 @@
       <% @cart_products.each do |cart_product| %>
         <tr>
           <th scope="row">
-            <a href="<%= %>">
+            <a href="<%= product_path(cart_product.product) %>">
               <%= image_tag(cart_product.product.image.url(:thumb), :class => 'thumbnail_image') %>
             </a>
-            <a href="<%= %>">
+            <a href="<%= product_path(cart_product.product) %>">
               <%= cart_product.product.title %>
             </a>
           </th>

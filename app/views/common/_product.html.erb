@@ -9,7 +9,7 @@
         <%= link_to truncate_str(title_format(product.title), 75), product_path(product) %>
       </h5>
       <p>
-        <a class="btn btn-primary js-add_to_basket" data-product-id="<%= product.id %>" href="#">Add to Basket +</a>
+        <%=raw render_add_to_basket(product) %>
       </p>
     </div>
     <div class="ratings">

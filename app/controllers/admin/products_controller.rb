@@ -25,7 +25,7 @@ class Admin::ProductsController < Admin::BaseController
   # POST /admin/products.json
   def create
     @product = Product.new(product_params)
-    @product.price = @product.price.round(2)
+    @product.price = @product.price.to_f.round(2)
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_url, notice: 'Product was successfully created.' }
@@ -42,7 +42,12 @@ class Admin::ProductsController < Admin::BaseController
   def update
     respond_to do |format|
       product_value_params = product_params
-      product_value_params[:price] = product_value_params[:price].round(2) if product_value_params[:price].present?
+      product_value_params[:out_of_stock] = product_value_params[:out_of_stock].to_i
+      product_value_params[:price] = product_value_params[:price].to_f.round(2) if product_value_params[:price].present?
+      p "++++++++++++++++++++"
+
+      p product_value_params
+      p "++++++++++++++++++++"
       if @product.update(product_value_params)
         format.html { redirect_to admin_products_url, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
@@ -71,6 +76,6 @@ class Admin::ProductsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :product_type_id, :no_of_pages, :publisher, :publication_date, :isbn, :price, :writer_name, :image, :product_file)
+      params.require(:product).permit(:title, :description, :product_type_id, :no_of_pages, :publisher, :publication_date, :isbn, :price, :writer_name, :image, :product_file, :category_id, :out_of_stock,)
     end
 end

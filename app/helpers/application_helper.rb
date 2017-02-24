@@ -22,4 +22,16 @@ module ApplicationHelper
     end
     "Basket: #{count} items $#{total}"
   end
+
+  def render_add_to_basket product
+    unless product.out_of_stock
+      "<a class='btn btn-primary js-add_to_basket' data-product-id='#{product.id}' href='#'>Add to Basket +</a>"
+    else
+      "<a class='btn btn-warning' href='#''>Out of Stock</a>"
+    end
+  end
+
+  def out_of_stock_message(product)
+    "<h6 class='text-danger'>This product is out of stock. Please remove this product.</h6>" if product.out_of_stock
+  end
 end

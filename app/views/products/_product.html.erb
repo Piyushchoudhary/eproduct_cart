@@ -20,7 +20,7 @@
       <h6>ISBN: <%= @product.isbn %></h6>
     </div>
     <div class="row vert-padding-top-1">
-      <a class="btn btn-primary js-add_to_basket" data-product-id="<%= @product.id %>" href="#">Add to Basket +</a>
+      <%=raw render_add_to_basket(@product) %>
     </div>
   </div>
 </div>

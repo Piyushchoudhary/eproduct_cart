@@ -1,0 +1,48 @@
+<div class="table-responsive cart-table">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th class="text-center">Qty</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_products.each do |cart_product| %>
+        <tr>
+          <th scope="row">
+            <a href="<%= %>">
+              <%= image_tag(cart_product.product.image.url(:thumb), :class => 'thumbnail_image') %>
+            </a>
+            <a href="<%= %>">
+              <%= cart_product.product.title %>
+            </a>
+          </th>
+          <td>
+            $<%= cart_product.price %>
+          </td>
+          <td class="text-center">
+            <%= cart_product.qty %><br/>
+            <h6><%= link_to 'Remove', '#' %></h6>
+          </td>
+          <td class="text-right">
+            $<%= cart_product.price %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="5" class="bg-info text-right">
+            <h4>
+              Total: <span class="text-info">$<%= @total_cost %></span>
+            </h4>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="bg-info text-right">
+          <button type="button" class="btn btn-primary">Checkout Now</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

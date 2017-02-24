@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :categories, :only => [:show]
 
+  post '/cart/add' => 'carts#add'
+
+  get '/cart' => 'carts#show'
+
   get '/contact' => 'home#contact'
 
   get '/my_account' => 'my_account#index'

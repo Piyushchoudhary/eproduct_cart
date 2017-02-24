@@ -1,10 +1,11 @@
 class CartsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_categories
+  before_action :load_cart, only: [:show, :remove_product]
+  before_action :set_cart, only: [:add]
 
   def add
     if valid_product?
-      set_cart
       cart_products = @cart.products
       unless cart_products.include?(@product)
         cart_product = CartProduct.create({ cart_id: @cart.id, product_id: @product.id, qty: 1, price: @product.price })
@@ -24,8 +25,21 @@ class CartsController < ApplicationController
     @cart = if session[:cart_id].present?
        Cart.find(session[:cart_id])
     elsif current_user.present? && current_user.cart.present?
-        current_user.present? ? current_user.create_cart : Cart.create
+        current_user.cart
     end
+  end
+
+  def remove_product
+    if params[:product_id].present? && @cart.present?
+      cart_product = CartProduct.find_by_id(params[:product_id])
+      if cart_product.present?
+        @cart.total -= cart_product.price
+        @cart.product_count -= cart_product.qty
+        @cart.save!
+        cart_product.destroy
+      end
+    end
+    redirect_to cart_path
   end
 
   private
@@ -48,6 +62,14 @@ class CartsController < ApplicationController
         Cart.create
       end
       session[:cart_id] = @cart.id
+    end
+  end
+
+  def load_cart
+    @cart = if session[:cart_id].present?
+       Cart.find(session[:cart_id])
+    elsif current_user.present? && current_user.cart.present?
+        current_user.cart
     end
   end
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :categories, :only => [:show]
 
+  delete 'cart/remove_product/:product_id' => 'carts#remove_product'
+
   post '/cart/add' => 'carts#add'
 
   get '/cart' => 'carts#show'

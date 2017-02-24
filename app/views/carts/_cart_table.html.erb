@@ -24,7 +24,10 @@
           </td>
           <td class="text-center">
             <%= cart_product.qty %><br/>
-            <h6><%= link_to 'Remove', '#' %></h6>
+            <h6>
+              <%= link_to 'Remove', "/cart/remove_product/#{cart_product.id}",
+              data: {:confirm => 'Are you sure?'}, :method => :delete %>
+            </h6>
           </td>
           <td class="text-right">
             $<%= cart_product.price %>

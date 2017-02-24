@@ -8,8 +8,10 @@ class CartsController < ApplicationController
       cart_products = @cart.products
       unless cart_products.include?(@product)
         cart_product = CartProduct.create({ cart_id: @cart.id, product_id: @product.id, qty: 1, price: @product.price })
-        total = cart_products.inject(0){ |sum, e| sum + e.price }
-        render json: { message: 'Product successfully added into cart.', cart_count: cart_products.count, total: total }, status: :created
+        @cart.total += @product.price
+        @cart.product_count += 1
+        @cart.save!
+        render json: { message: 'Product successfully added into cart.', cart_count: @cart.product_count, total: @cart.total }, status: :created
       else
         render_ok_response('Product is already present in your cart.')
       end
@@ -24,8 +26,6 @@ class CartsController < ApplicationController
     elsif current_user.present? && current_user.cart.present?
         current_user.present? ? current_user.create_cart : Cart.create
     end
-    @cart_products = @cart.cart_products
-    @total_cost = @cart_products.inject(0){ |sum, e| sum + e.price }
   end
 
   private

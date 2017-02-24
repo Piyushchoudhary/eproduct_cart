@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @cart_products.each do |cart_product| %>
+      <% @cart.cart_products.each do |cart_product| %>
         <tr>
           <th scope="row">
             <a href="<%= product_path(cart_product.product) %>">
@@ -34,7 +34,7 @@
       <tr>
         <td colspan="5" class="bg-info text-right">
             <h4>
-              Total: <span class="text-info">$<%= @total_cost %></span>
+              Total: <span class="text-info">$<%= @cart.total %></span>
             </h4>
         </td>
       </tr>

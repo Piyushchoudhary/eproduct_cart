@@ -24,9 +24,7 @@ Rails.application.routes.draw do
 
   post '/checkout/request_token' => 'checkout#request_authy_token'
 
-  post '/checkout/verify_token' => 'checkout#verify_token'
-
-  get '/checkout/order_success/:order_id' => 'checkout#order_success'
+  post '/checkout/process_order' => 'checkout#process_order'
 
   resources :products, :only => [:show]
 

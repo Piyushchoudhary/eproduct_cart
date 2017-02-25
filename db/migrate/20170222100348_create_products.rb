@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :publisher
       t.datetime :publication_date
       t.string :isbn
-      t.decimal :price
+      t.decimal :price, precision: 5, scale: 2, default: 0
       t.string :writer_name
       t.attachment :image
       t.attachment :product_file

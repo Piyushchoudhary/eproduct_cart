@@ -29,7 +29,7 @@ class CheckoutController < ApplicationController
     end
   end
 
-  def verify_token
+  def process_order
     if params[:token].present?
       response = Authy::API.verify(:id => current_user.authy_id, :token => params[:token])
       if response.ok?
@@ -60,7 +60,26 @@ class CheckoutController < ApplicationController
   end
 
   def place_order uuid
-    redirect_to "/checkout/order_success/#{order.id}"
+    @order = Order.create({
+      user_id: current_user.id,
+      order_date: Time.current,
+      status: 'pending',
+      authy_uuid: uuid
+      })
+
+    @cart.cart_products.each do |cart_product|
+      product = cart_product.product
+      order_product = OrderProduct.create({
+        order_id: @order.id,
+        product_id: cart_product.product_id,
+        price: cart_product.price,
+        qty: cart_product.qty,
+        status: 'pending'
+        })
+        product.sell_counter += cart_product.qty
+        SendProductDocMailer.send_product_email(current_user, @order, order_product,  product).deliver_later
+    end
+    render template: '/checkout/order_success'
   end
 
 end

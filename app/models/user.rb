@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_one :cart
 
+  belongs_to :country_code
+
   def send_admin_mail
     UserMailer.send_welcome_email(self).deliver_later
   end

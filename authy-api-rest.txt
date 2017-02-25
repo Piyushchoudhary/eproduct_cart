@@ -1,0 +1,25 @@
+# request for approval
+curl "https://api.authy.com/onetouch/json/users/35044426/approval_requests" \
+-d api_key="t7d4gbsmS0lp1XTrDHywtdGCSIZnX595" \
+-d message="Login requested for a CapTrade Bank account." \
+-d details[username]="sandeep patle" \
+-d details[location]="Bangalore, INdia" \
+-d details[AccountNumber]="35044426" \
+-d hidden_details[ip_address]='10.10.3.203' \
+-d seconds_to_expire=900
+
+
+# registered user
+curl "http://api.authy.com/protected/json/users/new?api_key=t7d4gbsmS0lp1XTrDHywtdGCSIZnX595" \
+-d user[email]="spatlemail@gmail.com" \
+-d user[cellphone]="7483189077" \
+-d user[country_code]="91"
+
+
+#status of request
+GET https://api.authy.com/onetouch/json/approval_requests/%UUID%?api_key=t7d4gbsmS0lp1XTrDHywtdGCSIZnX595
+GET https://api.authy.com/onetouch/json/approval_requests/a4a06b60-dd5d-0134-276f-0e08b71c42d6?api_key=t7d4gbsmS0lp1XTrDHywtdGCSIZnX595
+
+curl -i "https://api.authy.com/protected/json/verify/%token%/%authy_id%" -H "X-Authy-API-Key: t7d4gbsmS0lp1XTrDHywtdGCSIZnX595"
+curl -i "https://api.authy.com/protected/json/verify/0918849/35044426" -H "X-Authy-API-Key: t7d4gbsmS0lp1XTrDHywtdGCSIZnX595"
+

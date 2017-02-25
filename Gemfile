@@ -39,6 +39,9 @@ gem 'sunspot_solr'
 
 gem 'progress_bar'
 
+# Access Authy API
+gem 'authy', '~> 2.7', '>= 2.7.1'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

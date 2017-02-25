@@ -15,11 +15,7 @@ class Product < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
 
-  validates :title, presence: true, uniqueness: true
-
-  validates :price, presence: true
-
-  validates :price, numericality: true
+  validates :price, presence: true, numericality: true
 
   searchable do
     text :title

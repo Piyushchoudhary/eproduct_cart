@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="alert alert-success" role="alert">
+      <strong>Checkout!</strong> Please authorize your order using Twillio Authy for 2-factor authentication.
+    </div>
+
+    <div class="col-12 col-md-auto">
+      <form action="<%= checkout_request_token_path %>" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <button type="submit" class="btn btn-primary">Request Token</button>
+      </form>
+    </div>
+
+  </div>
+</div>

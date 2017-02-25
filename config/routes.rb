@@ -20,6 +20,14 @@ Rails.application.routes.draw do
 
   get '/my_orders' => 'my_account#my_orders'
 
+  get '/checkout/init' => 'checkout#index'
+
+  post '/checkout/request_token' => 'checkout#request_authy_token'
+
+  post '/checkout/verify_token' => 'checkout#verify_token'
+
+  get '/checkout/order_success/:order_id' => 'checkout#order_success'
+
   resources :products, :only => [:show]
 
   devise_for :users, controllers: {

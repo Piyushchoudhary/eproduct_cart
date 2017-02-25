@@ -31,4 +31,6 @@ $(function(){
       showMessageModal('Product is invalid.');
     }
   });
+
+  
 });

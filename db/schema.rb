@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 20170225091408) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin_role",             default: false
     t.boolean  "user_role",              default: true
+    t.string   "name"
     t.integer  "authy_id",               default: 0
-    t.integer  "cellphone",              default: 0
+    t.string   "cellphone"
     t.integer  "country_code_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

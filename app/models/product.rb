@@ -17,6 +17,8 @@ class Product < ApplicationRecord
 
   validates :price, presence: true, numericality: true
 
+  before_destroy :delete_attachments
+
   searchable do
     text :title
     integer :price
@@ -40,4 +42,14 @@ class Product < ApplicationRecord
     @delete_product_file  = !value.to_i.zero?
   end
 
+  def delete_attachments
+    if self.product_file.present? && self.product_file.path.present?
+      product_path = self.product_file.path
+      File.delete(product_path)  && File.exist?(product_path)
+    end
+    if self.image.present? && self.image.path.present?
+      image_file = self.image.path
+      File.delete(image_file) if image_file.present? && File.exist?(image_file)
+    end
+  end
 end

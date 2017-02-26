@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Users</a>
+                    <%= link_to('Users', admin_users_path) %>
                 </li>
                 <li>
                   <%= link_to('Categories', admin_categories_path) %>
@@ -24,7 +24,7 @@
                   <%= link_to('Products', admin_products_path) %>
                 </li>
                 <li>
-                    <a href="#">Orders</a>
+                    <%= link_to('Orders', admin_orders_path) %>
                 </li>
                 <li>
                   <%= link_to('My Profile', edit_user_registration_path) %>

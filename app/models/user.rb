@@ -37,6 +37,7 @@ class User < ApplicationRecord
   end
 
   def destroy_authy_user
+    return if self.authy_id == 0
     response = Authy::API.delete_user(:id => self.authy_id)
     unless response.ok?
       fail response.errors

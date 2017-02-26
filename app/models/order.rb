@@ -3,6 +3,6 @@ class Order < ApplicationRecord
   has_many :order_products
 
   def get_status
-    order_products.any? { |product| product.status == 'pending' } ? 'Pending' : 'Completed'
+    order_products.any? { |product| product.status.downcase == 'pending' } ? 'pending' : 'completed'
   end
 end

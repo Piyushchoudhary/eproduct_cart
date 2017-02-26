@@ -36,4 +36,8 @@ module ApplicationHelper
   def out_of_stock_message(product)
     "<h6 class='text-danger'>This product is out of stock. Please remove this product.</h6>" if product.out_of_stock
   end
+
+  def format_price price
+    "$#{number_with_precision(price, :precision => 2)}"
+  end
 end

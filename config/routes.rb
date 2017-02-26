@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/my_account' => 'my_account#index'
 
+  get '/my_account/change_password' => 'my_account#change_password'
+
   get '/my_orders' => 'my_account#my_orders'
 
   get '/checkout/init' => 'checkout#index'
@@ -25,6 +27,10 @@ Rails.application.routes.draw do
   post '/checkout/request_token' => 'checkout#request_authy_token'
 
   post '/checkout/process_order' => 'checkout#process_order'
+
+  get '/myorders' => 'my_orders#index'
+
+  get '/myorders/:id' => 'my_orders#show'
 
   resources :products, :only => [:show]
 

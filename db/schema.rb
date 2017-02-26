@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225182833) do
+ActiveRecord::Schema.define(version: 20170226063317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 20170225182833) do
     t.string   "status"
     t.integer  "user_id"
     t.string   "authy_uuid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.decimal  "total",         precision: 5, scale: 2, default: "0.0"
+    t.integer  "product_count",                         default: 0
   end
 
   create_table "product_types", force: :cascade do |t|

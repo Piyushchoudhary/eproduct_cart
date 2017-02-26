@@ -63,7 +63,9 @@ class CheckoutController < ApplicationController
       user_id: current_user.id,
       order_date: Time.current,
       status: 'pending',
-      authy_uuid: uuid
+      authy_uuid: uuid,
+      total: @cart.total,
+      product_count: @cart.product_count 
       })
 
     @cart.cart_products.each do |cart_product|

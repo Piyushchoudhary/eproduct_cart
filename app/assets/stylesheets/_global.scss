@@ -1,58 +1,49 @@
-/*!
- * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+ //colors
+ $color_new_york_pink_approx: #d17581;
+ $color_mine_shaft_approx: #333;
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
-
-.slide-image {
-    width: 100%;
-}
-
-.carousel-holder {
-    margin-bottom: 30px;
-}
-
-.carousel-control,
-.item {
-    border-radius: 4px;
-}
-
-.caption {
-    height: 130px;
-    overflow: hidden;
-}
-
-.caption h4 {
-    white-space: nowrap;
-}
-
-.thumbnail img {
-    width: 100%;
-}
-
-.ratings {
-    padding-right: 10px;
-    padding-left: 10px;
-    color: #d17581;
-}
-
-.thumbnail {
-    padding: 0;
-}
-
-.thumbnail .caption-full {
-    padding: 9px;
-    color: #333;
-}
-
-footer {
-    margin: 50px 0;
-}
-
+ body {
+ 	padding-top: 70px;
+ }
+ .slide-image {
+ 	width: 100%;
+ }
+ .carousel-holder {
+ 	margin-bottom: 30px;
+ }
+ .carousel-control {
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 4px;
+ }
+ .item {
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 4px;
+ }
+ .caption {
+ 	height: 130px;
+ 	overflow: hidden;
+ 	h4 {
+ 		white-space: nowrap;
+ 	}
+ }
+ .thumbnail {
+ 	padding: 0;
+ 	img {
+ 		width: 100%;
+ 	}
+ 	.caption-full {
+ 		padding: 9px;
+ 		color: $color_mine_shaft_approx;
+ 	}
+ }
+ .ratings {
+ 	padding-right: 10px;
+ 	padding-left: 10px;
+ 	color: $color_new_york_pink_approx;
+ }
+ footer {
+ 	margin: 50px 0;
+ }
 /* product images */
 .thumbnail img.thumbnail_image, .thumbnail_image  {
   width: 140px;
@@ -67,4 +58,9 @@ footer {
 }
 .cart-table .thumbnail_image {
   width: 68px;
+}
+
+.border {
+  border:solid 1px black;
+  background-color:#ededed;
 }

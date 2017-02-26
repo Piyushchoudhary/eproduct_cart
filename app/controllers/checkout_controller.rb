@@ -3,6 +3,7 @@ class CheckoutController < ApplicationController
   before_action :verify_and_set_cart
 
   def index
+    @authy_error = ''
   end
 
   # make authy request for one touch token
@@ -65,7 +66,7 @@ class CheckoutController < ApplicationController
       status: 'pending',
       authy_uuid: uuid,
       total: @cart.total,
-      product_count: @cart.product_count 
+      product_count: @cart.product_count
       })
 
     @cart.cart_products.each do |cart_product|

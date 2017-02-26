@@ -14,7 +14,7 @@ module ApplicationHelper
   def is_admin?
     current_user.present? && current_user.admin_role
   end
-  
+
   def show_cart_info
     if session[:cart_id].present? && cart = Cart.find_by(id: session[:cart_id])
       total, count = cart.total, cart.product_count
@@ -43,5 +43,13 @@ module ApplicationHelper
 
   def format_price price
     "$#{number_with_precision(price, :precision => 2)}"
+  end
+
+  def user_name
+    if is_admin?
+      ": Admin"
+    elsif current_user.present?
+      ": #{current_user.name.camelize}"
+    end
   end
 end

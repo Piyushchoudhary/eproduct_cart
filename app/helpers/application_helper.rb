@@ -11,6 +11,10 @@ module ApplicationHelper
     products.size > 12
   end
 
+  def is_admin?
+    current_user.present? && current_user.admin_role
+  end
+  
   def show_cart_info
     if session[:cart_id].present? && cart = Cart.find_by(id: session[:cart_id])
       total, count = cart.total, cart.product_count

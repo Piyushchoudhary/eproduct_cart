@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  layout :set_layout
 
   def update
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
@@ -35,5 +36,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def needs_password?
     params[:user][:password].present?
+  end
+
+  def set_layout
+    current_user.present? && current_user.admin_role ? 'admin' : 'application'
   end
 end

@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Admin Products</h1>
-
-<table>
+<h3>Products</h3>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -10,32 +8,28 @@
       <th>Publisher</th>
       <th>Price</th>
       <th>Out of Stock</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @products.each do |admin_product| %>
       <tr>
-        <td><%= admin_product.title %></td>
+        <th scope="row"><%= admin_product.title %></th>
         <td><%= admin_product.no_of_pages %></td>
         <td><%= admin_product.publisher %></td>
-        <td><%= admin_product.price %></td>
-        <td>
-          <% unless admin_product.out_of_stock %>
+        <td><%= format_price(admin_product.price) %></td>
+        <td class="text-center">
+          <% if admin_product.out_of_stock %>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
           <% else %>
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           <% end %>
         </td>
-        <td><%= link_to 'Show', admin_product_path(admin_product) %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>
         <td><%= link_to 'Destroy', admin_product_path(admin_product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Admin Product', new_admin_product_path %>
+<%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary btn-sm' %>

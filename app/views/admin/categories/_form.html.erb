@@ -1,7 +1,6 @@
 <% if category.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
     <ul>
     <% category.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -9,17 +8,17 @@
     </ul>
   </div>
 <% end %>
-
-<div class="field">
+<div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: 'form-control', placeholder: 'Enter email' %>
+  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: 'form-control' %>
 </div>
-
-<div class="actions">
-  <%= f.submit %>
+<div class="form-group">
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <%= link_to 'Back', admin_categories_path, class: 'btn btn-warning btn-sm' %>
 </div>

@@ -12,12 +12,14 @@ module ApplicationHelper
   end
 
   def show_cart_info
-    if session[:cart_id].present?
-      cart = Cart.find(session[:cart_id])
+    if session[:cart_id].present? && cart = Cart.find_by(id: session[:cart_id])
       total, count = cart.total, cart.product_count
     elsif (current_user.present? && current_user.cart.present?)
-      total, count = current_user.cart.total, current_user.cart.product_count
+      user_cart = current_user.cart
+      session[:cart_id] = user_cart.id
+      total, count = user_cart.total, user_cart.product_count
     else
+      session[:cart_id] = nil
       total, count = 0, 0.00
     end
     "Basket: #{count} items $#{total}"

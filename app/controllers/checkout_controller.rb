@@ -1,5 +1,4 @@
 class CheckoutController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_categories
   before_action :verify_and_set_cart
 
@@ -52,7 +51,7 @@ class CheckoutController < ApplicationController
 
   private
   def verify_and_set_cart
-    if current_user.present? && current_user.cart.present? && current_user.cart.cart_products.present?
+    if current_user.cart.present? && current_user.cart.cart_products.present?
       @cart = current_user.cart
     else
       redirect_to cart_path, notice: 'Unable to process checkout.'
@@ -76,9 +75,10 @@ class CheckoutController < ApplicationController
         qty: cart_product.qty,
         status: 'pending'
         })
-        product.sell_counter += cart_product.qty
         SendProductDocMailer.send_product_email(current_user, @order, order_product,  product).deliver_later
     end
+    @cart.destroy
+    session[:cart_id] = nil
     render template: '/checkout/order_success'
   end
 

@@ -44,10 +44,7 @@ class Admin::ProductsController < Admin::BaseController
       product_value_params = product_params
       product_value_params[:out_of_stock] = product_value_params[:out_of_stock].to_i
       product_value_params[:price] = product_value_params[:price].to_f.round(2) if product_value_params[:price].present?
-      p "++++++++++++++++++++"
 
-      p product_value_params
-      p "++++++++++++++++++++"
       if @product.update(product_value_params)
         format.html { redirect_to admin_products_url, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }

@@ -37,6 +37,8 @@ gem 'sunspot_rails'
 # optional pre-packaged Solr distribution for use in development
 gem 'sunspot_solr'
 
+gem "sunspot-rails-tester"
+
 gem 'progress_bar'
 
 # Access Authy API
@@ -55,8 +57,14 @@ gem 'faraday', '~> 0.9.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'rspec-rails', '3.5.0'
+  gem 'rspec', '3.5.0'
+  gem 'rspec-core', '3.5.0'
+  gem 'rspec-expectations', '3.5.0'
+  gem 'rspec-mocks', '3.5.0'
+  gem 'rspec-support', '3.5.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do

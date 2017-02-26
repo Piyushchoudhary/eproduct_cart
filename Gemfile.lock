@@ -139,6 +139,10 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.1)
+      actionpack (~> 5.x)
+      actionview (~> 5.x)
+      activesupport (~> 5.x)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -158,7 +162,11 @@ GEM
       railties (>= 4.2.0, < 5.1)
     rsolr (1.1.2)
       builder (>= 2.1.2)
-    rspec-core (3.5.4)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.0)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -166,7 +174,7 @@ GEM
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
-    rspec-rails (3.5.2)
+    rspec-rails (3.5.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -197,6 +205,9 @@ GEM
     sunspot (2.2.7)
       pr_geohash (~> 1.0)
       rsolr (>= 1.1.1, < 3)
+    sunspot-rails-tester (1.0.0)
+      sunspot_rails (>= 1.2)
+      sunspot_solr (>= 1.2)
     sunspot_rails (2.2.7)
       nokogiri
       rails (>= 3)
@@ -245,10 +256,17 @@ DEPENDENCIES
   progress_bar
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  rspec-rails (~> 3.5)
+  rails-controller-testing
+  rspec (= 3.5.0)
+  rspec-core (= 3.5.0)
+  rspec-expectations (= 3.5.0)
+  rspec-mocks (= 3.5.0)
+  rspec-rails (= 3.5.0)
+  rspec-support (= 3.5.0)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sunspot-rails-tester
   sunspot_rails
   sunspot_solr
   toastr-rails

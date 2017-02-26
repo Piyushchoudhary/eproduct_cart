@@ -2,38 +2,29 @@ require 'rails_helper'
 
 RSpec.describe "admin/products/new", type: :view do
   before(:each) do
-    assign(:admin_product, Admin::Product.new(
-      :title => "MyString",
-      :description => "MyText",
-      :product_type_id => 1,
-      :no_pages => 1,
-      :publisher => "MyString",
-      :isbn => "MyString",
-      :price => "9.99",
-      :writer_name => "MyString"
-    ))
+    assign(:product, create(:product))
   end
 
-  it "renders new admin_product form" do
+  it "renders new product form" do
     render
 
     assert_select "form[action=?][method=?]", admin_products_path, "post" do
 
-      assert_select "input#admin_product_title[name=?]", "admin_product[title]"
+      assert_select "input#product_title[name=?]", "product[title]"
 
-      assert_select "textarea#admin_product_description[name=?]", "admin_product[description]"
+      assert_select "textarea#product_description[name=?]", "product[description]"
 
-      assert_select "input#admin_product_product_type_id[name=?]", "admin_product[product_type_id]"
+      assert_select "select#product_product_type_id[name=?]", "product[product_type_id]"
 
-      assert_select "input#admin_product_no_pages[name=?]", "admin_product[no_pages]"
+      assert_select "input#product_no_of_pages[name=?]", "product[no_of_pages]"
 
-      assert_select "input#admin_product_publisher[name=?]", "admin_product[publisher]"
+      assert_select "input#product_publisher[name=?]", "product[publisher]"
 
-      assert_select "input#admin_product_isbn[name=?]", "admin_product[isbn]"
+      assert_select "input#product_isbn[name=?]", "product[isbn]"
 
-      assert_select "input#admin_product_price[name=?]", "admin_product[price]"
+      assert_select "input#product_price[name=?]", "product[price]"
 
-      assert_select "input#admin_product_writer_name[name=?]", "admin_product[writer_name]"
+      assert_select "input#product_writer_name[name=?]", "product[writer_name]"
     end
   end
 end

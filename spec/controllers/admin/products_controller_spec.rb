@@ -70,9 +70,9 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
       it "updates the requested product" do
         product = create(:product)
-        put :update, params: {id: product.to_param, product: new_attributes}
+        put :update, params: {id: product.id, product: new_attributes}
         product.reload
-        expect(product.attributes).to include( { title: 'new product' } )
+        expect(product.attributes).to include( { 'title' => 'new product' } )
       end
 
       it "assigns the requested product as @product" do

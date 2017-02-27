@@ -14,7 +14,7 @@
   <tbody>
     <% @products.each do |admin_product| %>
       <tr>
-        <th scope="row"><%= admin_product.title %></th>
+        <td scope="row"><%= admin_product.title %></td>
         <td><%= admin_product.no_of_pages %></td>
         <td><%= admin_product.publisher %></td>
         <td><%= format_price(admin_product.price) %></td>

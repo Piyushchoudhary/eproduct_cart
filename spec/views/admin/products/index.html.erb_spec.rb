@@ -13,7 +13,7 @@ RSpec.describe "admin/products/index", type: :view do
     assert_select "tr>td", :text => "Product1".to_s
     assert_select "tr>td", :text => "Product2".to_s
     assert_select "tr>td", :text => 12.to_s, :count => 2
-    assert_select "tr>td", :text => 120.0.to_s, :count => 2
+    assert_select "tr>td", :text => "$120.00", :count => 2
     assert_select "tr>td", :text => "test publisher".to_s, :count => 2
   end
 end

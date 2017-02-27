@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
   before_action :set_categories, only: [:show]
 
+  # GET show products category wise
   def show
     @category = Category.find(params[:id])
     @products = Product.search { with(:category_id, params[:id]) }.results

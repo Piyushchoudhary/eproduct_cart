@@ -31,6 +31,7 @@ class CheckoutController < ApplicationController
     end
   end
 
+  # POST place the order if token verified successfully
   def process_order
     if params[:token].present?
       response = Authy::API.verify(:id => current_user.authy_id, :token => params[:token])
@@ -44,6 +45,7 @@ class CheckoutController < ApplicationController
     end
   end
 
+  # GET order sccess page
   def order_success
     if params[:order_id].present?
       @order = Order.find(params[:order_id])

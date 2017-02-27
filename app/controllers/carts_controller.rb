@@ -4,6 +4,7 @@ class CartsController < ApplicationController
   before_action :load_cart, only: [:show, :remove_product]
   before_action :set_cart, only: [:add]
 
+  # POST add product to cart
   def add
     if valid_product?
       cart_products = @cart.products
@@ -21,6 +22,7 @@ class CartsController < ApplicationController
     end
   end
 
+  # GET show cart with all cart products
   def show
     @cart = if session[:cart_id].present?
        Cart.find(session[:cart_id])
@@ -57,7 +59,7 @@ class CartsController < ApplicationController
     render json: { message: msg }, status: :ok
   end
 
-  # Get/create cart object using session
+  # Fetch/create cart object using session
   def set_cart
     if session[:cart_id].present?
       @cart = Cart.find(session[:cart_id])
@@ -71,6 +73,7 @@ class CartsController < ApplicationController
     end
   end
 
+  # Load cart from session or current_user object
   def load_cart
     @cart = if session[:cart_id].present?
        Cart.find(session[:cart_id])

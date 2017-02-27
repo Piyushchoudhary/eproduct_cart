@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get '/myorders/:id' => 'my_orders#show'
 
+  get '/search' => 'home#search'
+
   resources :products, :only => [:show]
 
   devise_for :users, controllers: {

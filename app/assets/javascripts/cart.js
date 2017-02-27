@@ -1,5 +1,6 @@
+// add product to cart using post ajax call
+// Show modal popup with success & error response
 $(function(){
-
   var showMessageModal = function (msg) {
     $('.js-modal_body').html(msg);
     $('#myModal').modal('show')
@@ -31,6 +32,4 @@ $(function(){
       showMessageModal('Product is invalid.');
     }
   });
-
-  
 });

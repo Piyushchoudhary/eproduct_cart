@@ -72,3 +72,7 @@ bundle exec rake sunspot:reindex
 ```sh
 bundle exec rspec
 ```
+
+## Setup Authy mobile application(Android/iOS):
+* User need to setup Authy app in mobile by using mobile number which he used to register in this application.
+* Checkout process will generate a Time based One Time Password using the Authy app and user need to use this token to verify checkout to place the order.

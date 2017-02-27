@@ -13,7 +13,7 @@ FactoryGirl.define do
         user.update_attribute(:admin_role, true)
       end
     end
-    
+
     country_code
   end
 

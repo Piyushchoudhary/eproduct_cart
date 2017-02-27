@@ -29,17 +29,23 @@ class CartsController < ApplicationController
     end
   end
 
+  # DELETE cart product by passing cart_product_id
   def remove_product
-    if params[:product_id].present? && @cart.present?
+    if @cart.present?
       cart_product = CartProduct.find_by_id(params[:product_id])
       if cart_product.present?
         @cart.total -= cart_product.price
-        @cart.product_count -= cart_product.qty
+        @cart.product_count -= 1
         @cart.save!
         cart_product.destroy
+        msg = 'Product successfully deleted from cart.'
+      else
+        msg = 'Product does not exist in cart.'
       end
+      redirect_to cart_path, notice: msg
+    else
+      redirect_to root_path
     end
-    redirect_to cart_path
   end
 
   private

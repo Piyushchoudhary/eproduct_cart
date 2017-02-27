@@ -66,15 +66,13 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) {{ title: 'new product' }}
 
       it "updates the requested product" do
         product = create(:product)
         put :update, params: {id: product.to_param, product: new_attributes}
         product.reload
-        skip("Add assertions for updated state")
+        expect(product.attributes).to include( { title: 'new product' } )
       end
 
       it "assigns the requested product as @product" do

@@ -34,13 +34,3 @@ if User.where(email: 'eproduct2017@gmail.com').blank?
   }
   User.create(user_params)
 end
-
-# Create customer user
-if User.where(email: 'epcustomer2017@gmail.com').blank?
-  user_params = {
-    email: 'epcustomer2017@gmail.com', password: 'epcustomer2017test',
-    name: 'Sandeep Patle', cellphone: '7483189077',
-    country_code_id: india_code.id
-  }
-  User.create(user_params)
-end

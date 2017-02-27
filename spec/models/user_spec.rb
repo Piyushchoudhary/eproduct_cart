@@ -1,34 +1,46 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { described_class.new }
+  subject { described_class.new(attributes_for(:user)) }
 
-  it "is valid with valid attributes" do
-    subject.name = 'Manufacturer Name 3M'
-    subject.cellphone = 123456789
-    subject.password = "test1234"
-    subject.country_code_id = 1
-    subject.email = "test@test.com"
+  it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
 
-  # it "is not valid without a title" do
-  #   subject.title = nil
-  #   expect(subject).to_not be_valid
-  # end
-  #
-  # it "is not valid without a description" do
-  #   subject.description = nil
-  #   expect(subject).to_not be_valid
-  # end
-  #
-  # it "is not valid without a start_date" do
-  #   subject.start_date = nil
-  #   expect(subject).to_not be_valid
-  # end
-  #
-  # it "is not valid without a end_date" do
-  #   subject.end_date = nil
-  #   expect(subject).to_not be_valid
-  # end
+  it 'is not valid without a email' do
+    subject.email = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a name' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a cellphone' do
+    subject.cellphone = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a password' do
+    subject.password = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a country_code_id' do
+    subject.country_code_id = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with a duplicate email' do
+    user = FactoryGirl.create(:user)
+    subject.email = user.email
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with a duplicate cellphone' do
+    user = FactoryGirl.create(:user)
+    subject.cellphone = user.cellphone
+    expect(subject).to_not be_valid
+  end
 end

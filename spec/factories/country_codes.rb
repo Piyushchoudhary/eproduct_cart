@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :country_code do
     name "India"
-    code 1
+    sequence(:code) { |n| n }
   end
 end

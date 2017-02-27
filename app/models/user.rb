@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  validates :cellphone, presence: true
+  validates :cellphone, presence: true, uniqueness: true
 
   validates :country_code_id, presence: true
 

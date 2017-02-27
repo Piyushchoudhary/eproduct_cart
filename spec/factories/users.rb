@@ -7,14 +7,13 @@ FactoryGirl.define do
     authy_id 123456
     password 'test1234'
     password_confirmation 'test1234'
+    sequence(:country_code_id) { |n| n }
 
     trait :admin do
       after(:create) do |user|
         user.update_attribute(:admin_role, true)
       end
     end
-
-    country_code
   end
 
 end

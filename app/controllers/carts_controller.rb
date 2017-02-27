@@ -75,10 +75,13 @@ class CartsController < ApplicationController
 
   # Load cart from session or current_user object
   def load_cart
-    @cart = if session[:cart_id].present?
-       Cart.find(session[:cart_id])
+    if session[:cart_id].present?
+       @cart = Cart.find(session[:cart_id])
+       if current_user.present? && current_user.cart.blank?
+         @cart.update_attribute(:user_id, current_user.id)
+       end
     elsif current_user.present? && current_user.cart.present?
-        current_user.cart
+      @cart = current_user.cart
     end
   end
 end

@@ -20,9 +20,9 @@
         <td><%= format_price(admin_product.price) %></td>
         <td class="text-center">
           <% if admin_product.out_of_stock %>
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="text-danger">Out of Stock</span>
           <% else %>
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span class="text-success">In Stock</span>
           <% end %>
         </td>
         <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>

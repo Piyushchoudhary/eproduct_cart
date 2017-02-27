@@ -2,11 +2,12 @@ class CheckoutController < ApplicationController
   before_action :set_categories
   before_action :verify_and_set_cart
 
+  # GET : checkout page
   def index
     @authy_error = ''
   end
 
-  # make authy request for one touch token
+  # POST : make authy request for one touch token
   def request_authy_token
     response = Authy::OneTouch.send_approval_request(
       id: current_user.authy_id,
@@ -19,6 +20,7 @@ class CheckoutController < ApplicationController
       hidden_details: { ip: '1.1.1.1' },
       seconds_to_expire: 300
     )
+
     if response.ok?
       @authy_error = ''
       @uuid = response['approval_request']['uuid']

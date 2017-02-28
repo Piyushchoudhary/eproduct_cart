@@ -4,9 +4,6 @@
 
   <div class="col-md-9">
     <div class="row">
-      <% if @authy_error.present? || flash[:notice].present? %>
-        <%= render partial: 'checkout/authy_error', locals: { message: @authy_error || flash[:notice] } %>
-      <% end %>
       <%= render partial: 'checkout/process_authy' %>
     </div>
 

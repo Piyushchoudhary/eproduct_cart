@@ -10,6 +10,13 @@ cart. At checkout time, the items in the shopping cart will be presented as an o
 that time, user need to verify by using Twillio Authy for 2-factor authentication. An e-mail is
 sent to the customer as soon as the order is placed with e-product as attachment.
 
+## Live Application
+https://fierce-depths-51967.herokuapp.com/
+You can access admin section by using credentials:
+```sh
+username: eproduct2017@gmail.com
+password: eproduct2017test
+```
 
 ## System dependencies
 * Ruby version: 2.3.0

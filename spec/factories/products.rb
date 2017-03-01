@@ -12,7 +12,7 @@ FactoryGirl.define do
     writer_name 'test writer'
     out_of_stock false
     image { Rack::Test::UploadedFile.new(Rails.root.join('fixtures', 'test.png'), 'image/png') }
-    product_file { Rack::Test::UploadedFile.new(Rails.root.join('public', 'test.pdf'), 'application/pdf') }
+    product_file { Rack::Test::UploadedFile.new(Rails.root.join('public', 'ebook.pdf'), 'application/pdf') }
   end
 
   factory :invalid_product, class: :Product do

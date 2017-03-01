@@ -17,7 +17,7 @@ class Product < ApplicationRecord
 
   validates :price, presence: true, numericality: true
 
-  before_destroy :delete_attachments
+  #before_destroy :delete_attachments
 
   searchable do
     text :title

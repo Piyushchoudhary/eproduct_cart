@@ -65,8 +65,8 @@ Open http://locahost:3000
 
 If you are using default admin credentials then can login into admin section using:
 ```sh
-username: eproduct2017@gmail.com
-password: eproduct2017test
+username: <admin_username>
+password: <password>
 ```
 
 Note: To stop and reindex sunspot solr using:
